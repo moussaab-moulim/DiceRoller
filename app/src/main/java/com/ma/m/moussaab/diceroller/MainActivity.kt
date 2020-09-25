@@ -3,6 +3,7 @@ package com.ma.m.moussaab.diceroller
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 
@@ -29,15 +30,28 @@ class MainActivity : AppCompatActivity() {
 
         // create instance of the dice class with 6 sides
         val dice1 = Dice(6)
+        //get a random side number
         val diceRoll1 = dice1.roll()
+
+        //get the image from resources with the number selected
+        val diceImageView1: ImageView = findViewById(R.id.dice_image_1)
+        val dice_id: Int = this.applicationContext.resources.getIdentifier(
+            "dice_$diceRoll1",
+            "drawable",
+            packageName
+        )
+        diceImageView1.setImageResource(dice_id)
+
+
+
         /*// create a second  instance of the dice class with 6 sides
         val dice2 = Dice(6)
-        val diceRoll2 = dice2.roll()*/
+        val diceRoll2 = dice2.roll()
 
         // update the text view with rolled dice 1 results
         val diceTextView1: TextView = findViewById(R.id.dice_textView_1)
         diceTextView1.text = diceRoll1.toString()
-        /*// update the text view with rolled dice 2 results
+        // update the text view with rolled dice 2 results
         val diceTextView2: TextView = findViewById(R.id.dice_textView_2)
         diceTextView2.text = diceRoll2.toString()*/
     }
