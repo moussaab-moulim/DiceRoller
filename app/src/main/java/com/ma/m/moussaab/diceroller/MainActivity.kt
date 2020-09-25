@@ -14,6 +14,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //do a dice roll when the app starts
+        rollDice()
+
+
         val rollButton: Button = findViewById(R.id.roll_button_1)
 
         rollButton.setOnClickListener {
@@ -33,14 +37,18 @@ class MainActivity : AppCompatActivity() {
         //get a random side number
         val diceRoll1 = dice1.roll()
 
-        //get the image from resources with the number selected
+        // find the imageview in the layout
         val diceImageView1: ImageView = findViewById(R.id.dice_image_1)
+        //determine the with drawable resource id to use based on the random dice number
         val dice_id: Int = this.applicationContext.resources.getIdentifier(
             "dice_$diceRoll1",
             "drawable",
             packageName
         )
+        // set the resource with the correct id to the image view
         diceImageView1.setImageResource(dice_id)
+        // set the content description to the dice image
+        diceImageView1.contentDescription="dice rolled on number $diceRoll1"
 
 
 
