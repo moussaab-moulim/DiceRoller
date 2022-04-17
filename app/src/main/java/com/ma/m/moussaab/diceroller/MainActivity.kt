@@ -2,6 +2,7 @@ package com.ma.m.moussaab.diceroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -9,11 +10,12 @@ import android.widget.Toast
 
 /*this activity allows the user to roll a dice and view results
 on the screen*/
+private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
+        logging()
         //do a dice roll when the app starts
         rollDice()
 
@@ -62,6 +64,9 @@ class MainActivity : AppCompatActivity() {
         // update the text view with rolled dice 2 results
         val diceTextView2: TextView = findViewById(R.id.dice_textView_2)
         diceTextView2.text = diceRoll2.toString()*/
+    }
+    fun logging(){
+        Log.wtf(TAG,"Hello, World! hhhhhhh")
     }
 }
 
